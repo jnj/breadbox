@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  withdrawal: gas_bill
+  deposit: paycheck
+
+two:
+  withdrawal: gas_bill
+  deposit: paycheck

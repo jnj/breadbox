@@ -1,0 +1,26 @@
+<h1>Listing stocks</h1>
+
+OWW: <%= @oww_price %>
+
+<table>
+  <tr>
+    <th>Symbol</th>
+    <th>Num shares</th>
+    <th>Account</th>
+  </tr>
+
+<% for stock in @stocks %>
+  <tr>
+    <td><%=h stock.symbol %></td>
+    <td><%=h stock.num_shares %></td>
+    <td><%=h stock.account %></td>
+    <td><%= link_to 'Show', stock %></td>
+    <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
+    <td><%= link_to 'Destroy', stock, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New stock', new_stock_path %>

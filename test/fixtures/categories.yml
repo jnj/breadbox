@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+cat_one:
+  name: Utility
+
+cat_two:
+  name: Food
+
+cat_three:
+  name: Misc

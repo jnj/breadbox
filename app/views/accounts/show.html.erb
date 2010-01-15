@@ -1,0 +1,63 @@
+<%= javascript_include_tag "MochiKit/MochiKit" %>
+<%= javascript_include_tag "PlotKit/PlotKit_Packed" %>
+<%= javascript_include_tag "PlotKit/Base" %>
+
+<% if @account.account_type != 'stock' %>
+<h2>Budget Summary</h2>
+
+<div id="summary_chart"></div>
+
+<script type="text/javascript">
+  var data = <%= @chart_data %>
+  var xTicks = [<% @sums.each_with_index do |entry, index| -%>{label: "<%= entry.first %>", v: <%= index %>}<%= ',' if index + 1 < @sums.size -%><% end -%>];
+  var options = {
+    "xTicks" : xTicks,
+    "width": 400,
+    "height": 400, 
+    "id":"chart"
+  };
+  var layout = new Layout("pie", options);
+  layout.addDataset("dataset2", data);        
+  layout.evaluate();
+
+  var svg = SVGRenderer.SVG(options)
+  $('summary_chart').appendChild(svg);
+  var chart = new SweetSVGRenderer(svg, layout);
+  chart.render();
+
+</script>
+
+
+<h2>Recent transactions</h2>
+<p>
+
+<% @account.recent_transactions(10).each do |txn| %>
+<%= link_to txn.description.strip, edit_transaction_path(txn, :account_id => @account.id) %> <strong><%= txn.transaction_date %></strong><br />
+<%= txn.category.name %> <%= number_to_currency(txn.amount) %><br /><br />
+
+<% end %>
+
+<br />
+<%= link_to 'New transaction', new_transaction_path(:account_id => @account.id) %>
+<br />
+
+<% else %> 
+
+<!-- account type == stock -->
+<h2>Stocks</h2>
+<% total = 0 %>
+<% @quotes_map.each do |stock, price| %>
+  <% value = price * stock.num_shares %>
+  <% total += value %>
+  <%= stock.symbol %>: <%= number_with_precision(price, 2) %> (x <%= stock.num_shares %> =
+  <%= number_to_currency(value) %>)<br/>
+<% end %>
+
+<br />Total Portfolio Value = <%= number_to_currency(total) %>
+<p><%= link_to 'New stock', new_stock_path(:account_id => @account.id) %>
+
+<% end %>
+
+<br />
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', :controller => 'home' %>

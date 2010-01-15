@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+paycheck:
+  description: got paid
+  amount: 1000.00
+  account: checking 
+  category: cat_one
+  transaction_date: 10/12/2008
+
+gas_bill:
+  description: MyString
+  amount: 9.99
+  account: savings
+  category: cat_two
+  transaction_date: 10/14/2008
+

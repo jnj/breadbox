@@ -1,0 +1,24 @@
+<h1>Editing stock</h1>
+
+<% form_for(@stock) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :symbol %><br />
+    <%= f.text_field :symbol %>
+  </p>
+  <p>
+    <%= f.label :num_shares %><br />
+    <%= f.text_field :num_shares %>
+  </p>
+  <p>
+    <%= f.label :account %><br />
+    <%= f.text_field :account %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @stock %> |
+<%= link_to 'Back', stocks_path %>
