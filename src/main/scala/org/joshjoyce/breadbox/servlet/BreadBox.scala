@@ -17,7 +17,7 @@ class BreadBox extends Step with ScalateSupport {
   }
   
   get("/") {
-    <h1>Test Succeeded</h1>
+    layoutTemplate("index.scaml")
   }
   
   private def configureTemplateEngine() = {

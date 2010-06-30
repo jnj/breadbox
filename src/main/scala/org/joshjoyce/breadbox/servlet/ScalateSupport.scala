@@ -21,6 +21,6 @@ trait ScalateSupport {
   def layoutTemplate(path: String, attributes: (String, Any)*) = {
     val renderContext = new ServletRenderContext(templateEngine, request, response, getServletContext)
     attributes.foreach { case (k, v) => renderContext.attributes(k) = v }
-    templateEngine.layout(path, renderContext)
+    templateEngine.layout("/WEB-INF/%s".format(path), renderContext)
   }
 }
