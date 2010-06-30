@@ -1,12 +1,9 @@
 import sbt._
 
 class ProjectConfig(info: ProjectInfo) extends DefaultWebProject(info) {
-
-  val lift = "net.liftweb" % "lift-core" % "1.0.2" % "compile"
-  val jetty6 = "org.mortbay.jetty" % "jetty" % "6.1.14" % "test"
+  val snapsRepo = "Nexus Snapshots Repository" at "http://repo.fusesource.com/nexus/content/repositories/snapshots"
+  val scalate = "org.fusesource.scalate" % "scalate-core" % "1.2-SNAPSHOT"
+  val jetty7 = "org.eclipse.jetty" % "jetty-webapp" % "7.0.2.RC0" % "test"
   val servlet = "javax.servlet" % "servlet-api" % "2.5" % "provided" 
-  val mongo = "org.mongodb" % "mongo-java-driver" % "1.2.1"
-
-  // required because Ivy doesn't pull repositories from poms
-  val smackRepo = "m2-repository-smack" at "http://maven.reucon.com/public"
+  val mongo = "org.mongodb" % "mongo-java-driver" % "1.4"
 }
