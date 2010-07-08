@@ -1,7 +1,13 @@
 -@ val body: String
-!!! Strict
+!!! Transitional
 %html
  %head
   %title BreadBox
+  %link{:rel => "stylesheet", :type => "text/css", :href => {uri("/css/styles.css")}}
  %body
-  != body
+  #wrapper
+   %img{:src => {uri("/img/box.png")}, :width => "100", :height => "91"}
+   %span.title breadbox
+   %br
+   #bodyWrapper
+    != body

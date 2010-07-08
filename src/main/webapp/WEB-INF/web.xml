@@ -9,8 +9,18 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
     <servlet-name>BreadBox</servlet-name>
     <servlet-class>org.joshjoyce.breadbox.servlet.BreadBox</servlet-class>
   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.png</url-pattern>
+    <url-pattern>*.jpg</url-pattern>
+    <url-pattern>*.css</url-pattern>
+    <url-pattern>*.js</url-pattern>
+  </servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>BreadBox</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
+
 </web-app>

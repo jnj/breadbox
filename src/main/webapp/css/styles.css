@@ -1,0 +1,15 @@
+#wrapper {
+    margin: 50px 50px 50px 50px;
+}
+
+#bodyWrapper {
+    margin: auto auto auto 110px;
+    background-color: #ee3b3b;
+}
+
+.title {
+    font-family: "Lucida Grande", "Aller", sans-serif;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #000;
+}
