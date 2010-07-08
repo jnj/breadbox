@@ -6,6 +6,7 @@ class ProjectConfig(info: ProjectInfo) extends DefaultWebProject(info) {
   val jetty7 = "org.eclipse.jetty" % "jetty-webapp" % "7.0.2.RC0" % "test"
   val servlet = "javax.servlet" % "servlet-api" % "2.5" % "provided" 
   val mongo = "org.mongodb" % "mongo-java-driver" % "1.4"
-  val logback = "ch.qos.logback" % "logback-classic" % "0.9.18"
+  val log4j = "log4j" % "log4j" % "1.2.16"
+  val slf4jLog4j = "org.slf4j" % "slf4j-log4j12" % "1.6.0"
   val slf4j = "org.slf4j" % "slf4j-api" % "1.5.6"
 }

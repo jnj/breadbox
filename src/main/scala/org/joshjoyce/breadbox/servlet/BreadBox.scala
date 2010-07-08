@@ -1,28 +1,17 @@
 package org.joshjoyce.breadbox.servlet
 
-import com.thinkminimo.step.Step
+import org.scalatra.scalate.ScalateSupport
+import org.scalatra.ScalatraServlet
 
-import org.fusesource.scalate.servlet._
-
-class BreadBox extends Step with ScalateSupport {
+class BreadBox extends ScalatraServlet with ScalateSupport {
   
-  lazy val templateEngine = configureTemplateEngine
-  
-  override def getServletContext() = super.getServletContext
-  override def request() = super.request
-  override def response() = super.response
-
   before {
     contentType = "text/html"
   }
   
   get("/") {
-    layoutTemplate("index.scaml")
-  }
-  
-  private def configureTemplateEngine() = {
-    val engine = new ServletTemplateEngine(getServletConfig())
-    engine
+    val renderContext = createRenderContext
+    templateEngine.layout("/WEB-INF/index.scaml", renderContext)
   }
 }
 
