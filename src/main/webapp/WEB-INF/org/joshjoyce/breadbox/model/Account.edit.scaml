@@ -1,0 +1,15 @@
+-@ val it: org.joshjoyce.breadbox.model.Account
+%span.subtitle Edit New Account
+%form{:method => "POST", :action => {uri("/saveaccount")}}
+ Name: 
+ %input{:type => "text", :size => "10", :name => "name"}
+ %br
+ Number: 
+ %input{:type => "text", :size => "10", :name => "number"}
+ %br
+ Type: 
+ %select{:name => "type"}
+  %option Savings
+  %option Checking
+ %br
+ %input{:type => "submit", :value => "Save"}

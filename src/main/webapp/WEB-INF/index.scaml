@@ -1,1 +1,5 @@
-Hello
+-@ val accounts: Traversable[org.joshjoyce.breadbox.model.Account]
+%span.subtitle Accounts
+%br
+= collection(accounts)
+%a{:href => {uri("/newaccount")}} New account
