@@ -23,7 +23,7 @@ class MongoDatabase(val host: String) extends Database {
     val doc = new BasicDBObject()
     doc.put("name", account.name)
     doc.put("number", account.number)
-    doc.put("type", account.accountType.getClass.getSimpleName)
+    doc.put("accountType", account.accountType.getClass.getSimpleName)
     db.getCollection(ACCT_COLL_KEY).insert(doc)
   }
   
