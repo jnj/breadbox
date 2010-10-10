@@ -3,11 +3,11 @@ package org.joshjoyce.breadbox.servlet
 import org.joshjoyce.breadbox.db._
 import org.joshjoyce.breadbox.model._
 
-import org.scalatra.scalate.ScalateSupport
-import org.scalatra.ScalatraServlet
+import org.scalatra._
+import org.scalatra.scalate._
+import org.fusesource.scalate._
 
 import org.slf4j.{Logger, LoggerFactory}
-
 
 class BreadBox extends ScalatraServlet with ScalateSupport {
   
