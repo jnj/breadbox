@@ -1,4 +1,7 @@
--@ val it: org.joshjoyce.breadbox.model.Account
-%h4 #{it.name}
-%h5 #{it.number}
-%h5 #{it.getClass.getSimpleName}
+-@ import val it: org.joshjoyce.breadbox.model.Account
+%form{:action => "/deleteaccount", :method => "POST"}
+  %input{:type => "hidden", :name => "name", :value => name}
+  %input{:type => "hidden", :name => "number", :value => number}
+  %input{:type => "hidden", :name => "type", :value => accountType}  
+  #{name} | #{number} | #{it.getClass.getSimpleName} | Edit |
+  %input{:type => "submit", :value => "Delete"}

@@ -32,8 +32,17 @@ class BreadBox extends ScalatraServlet with ScalateSupport {
     val account = new Account
     account.name = params("name")
     account.number = params("number")
-    account.accountType = AccountType(params("type"))
+    account.accountType = params("type")
     database.save(account)
+    response.sendRedirect("/")
+  }
+
+  post("/deleteaccount") {
+    val account = new Account
+    account.name = params("name")
+    account.number = params("number")
+    account.accountType = params("type")
+    database.delete(account)
     response.sendRedirect("/")
   }
     
@@ -47,4 +56,3 @@ class BreadBox extends ScalatraServlet with ScalateSupport {
     templateEngine.layout("/WEB-INF/%s".format(page), ctxt)
   }
 }
-
