@@ -8,6 +8,7 @@ class ProjectConfig(info: ProjectInfo) extends DefaultWebProject(info) {
   val scalatraScalate = "org.scalatra" % "scalatra-scalate_2.8.0" % "2.0.0.M1"
   val scalate = "org.fusesource.scalate" % "scalate-core" % "1.3.2"
 
+  val joda = "joda-time" % "joda-time" % "1.6.2"
   val jetty7 = "org.eclipse.jetty" % "jetty-webapp" % "7.0.2.RC0" % "test"
   val servlet = "javax.servlet" % "servlet-api" % "2.5" % "provided" 
   val mongo = "org.mongodb" % "mongo-java-driver" % "1.4"

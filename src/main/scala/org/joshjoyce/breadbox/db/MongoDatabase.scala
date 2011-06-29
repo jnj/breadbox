@@ -13,10 +13,19 @@ class MongoDatabase(val host: String) extends Logging {
   private val db = mongo.getDB("breadbox")
 
   private val ACCT_COLL_KEY = "accounts"
+  private val TXN_COLL_KEY = "transactions"
 
   def findAllAccounts() = {
     val cursor = db.getCollection(ACCT_COLL_KEY).find()
     cursor.iterator.map(docToAccount(_)).toList
+  }
+
+  def findTransactionsFor(account: Account) = {
+    val collection = db.getCollection(TXN_COLL_KEY)
+    val queryObj = new BasicDBObjectBuilder
+    queryObj.append("accountNumber", account.number)
+    val cursor = collection.find(queryObj.get)
+    cursor
   }
 
   def delete(account: Account) {
@@ -32,7 +41,7 @@ class MongoDatabase(val host: String) extends Logging {
     val doc = new BasicDBObject()
     doc.put("name", account.name)
     doc.put("number", account.number)
-    doc.put("accountType", account.accountType.getClass.getSimpleName)
+    doc.put("accountType", account.accountType)
     db.getCollection(ACCT_COLL_KEY).insert(doc)
   }
   
