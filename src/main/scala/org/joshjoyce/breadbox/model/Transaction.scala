@@ -16,5 +16,6 @@ object Transaction {
 
 case class Transaction(account: Account, amount: Money, date: LocalDate, description: Option[String])
 
-case class Transfer(debit: Debit, credit: Credit)
+case class Transfer(debitedAccount: Account, creditedAccount: Account, amount: Money, date: LocalDate, description: Option[String])
+
 
