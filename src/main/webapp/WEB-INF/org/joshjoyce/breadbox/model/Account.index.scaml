@@ -3,5 +3,9 @@
   %input{:type => "hidden", :name => "name", :value => name}
   %input{:type => "hidden", :name => "number", :value => number}
   %input{:type => "hidden", :name => "type", :value => accountType}  
-  #{name} | #{number} | #{accountType} | Edit |
-  %input{:type => "submit", :value => "Delete"}
+  #{name} | #{number} | #{accountType}
+  %input#deleteButton{:type => "submit", :value => "Delete"}
+:javascript
+  $(function() {
+      $("#deleteButton").button();
+    });

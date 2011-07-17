@@ -2,4 +2,10 @@
 %span.subtitle Accounts
 %br
 = collection(accounts)
-%a{:href => {uri("/newaccount")}} New account
+%a#newAccountButton{:href => "#"} New account
+:!javascript
+  $(function() {
+      $("#newAccountButton").button().click(function () {
+        window.location = #{"\"%s\"".format(uri("/newaccount"))};
+      });
+    });
