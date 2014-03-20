@@ -5,3 +5,5 @@ lib_managed
 *.class
 target
 project/boot
+*.iml
+*.ipr
