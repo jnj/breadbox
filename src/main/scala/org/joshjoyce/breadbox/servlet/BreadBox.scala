@@ -7,6 +7,7 @@ class BreadBox extends ScalatraServlet {
     <html>
       <body>
         <h1>Welcome to Breadbox!</h1>
+        <img src="img/box.png"></img>
       </body>
     </html>
   }
